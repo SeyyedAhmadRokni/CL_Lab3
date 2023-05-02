@@ -1,6 +1,6 @@
 module FrequencySelectorTB;
     reg clk, rst;
-    reg [4:0] pl;
+    reg [2:0] pl;
     wire out;
     FrequencySelector fs(clk, rst, pl, out);
     always begin
@@ -9,18 +9,18 @@ module FrequencySelectorTB;
     initial begin
         clk = 0;
         rst = 1;
-        pl = 5'b0000;
+        pl = 3'b000;
         #2;
         rst = 0;
-        #300;
-        pl = 5'b1000;
-        #300;
-        pl = 5'b1010;
-        #300;
+        #3000;
+        pl = 5'b100;
+        #3000;
+        pl = 5'b101;
+        #3000;
         pl = 5'b0111;
-        #300;
-        pl = 5'b1111;
-        #300;
+        #3000;
+        pl = 5'b110;
+        #3000;
         $stop;
     end
 endmodule
